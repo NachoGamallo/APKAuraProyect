@@ -1,0 +1,21 @@
+export '/backend/schema/util/schema_util.dart';
+
+export 'actual_session_struct.dart';
+export 'exercise_details_struct.dart';
+export 'exercise_report_info_struct.dart';
+export 'exercise_series_struct.dart';
+export 'exercise_sumary_struct.dart';
+export 'log_weight_and_date_struct.dart';
+export 'routine_struct.dart';
+export 'routine_basic_data_struct.dart';
+export 'routine_creator_with_exercise_data_struct.dart';
+export 'routine_exercise_struct.dart';
+export 'routine_exercise_creation_struct.dart';
+export 'routine_exercise_set_struct.dart';
+export 'serie_struct.dart';
+export 'session_max_weight_struct.dart';
+export 'user_struct.dart';
+export 'user_home_data_struct.dart';
+export 'create_routine_struct.dart';
+export 'creation_user_struct.dart';
+export 'user_data_struct.dart';
