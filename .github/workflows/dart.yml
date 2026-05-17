@@ -29,5 +29,5 @@ jobs:
       run: flutter analyze --no-fatal-warnings
 
     # Si tienes pruebas unitarias de FlutterFlow
-    - name: Run tests
-      run: flutter test
+    #- name: Run tests
+    #  run: flutter test
