@@ -21,8 +21,6 @@ class LogginScreenModel extends FlutterFlowModel<LogginScreenWidget> {
   ApiCallResponse? apiResultovr;
   // Stores action output result for [Backend Call - API (GetUserData)] action in Button widget.
   ApiCallResponse? apiUserData;
-  // Stores action output result for [Backend Call - API (getHomeData)] action in Button widget.
-  ApiCallResponse? apiHomeData;
 
   @override
   void initState(BuildContext context) {

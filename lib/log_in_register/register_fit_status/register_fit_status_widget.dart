@@ -55,7 +55,7 @@ class _RegisterFitStatusWidgetState extends State<RegisterFitStatusWidget> {
         key: scaffoldKey,
         backgroundColor: Color(0xFF1A1A2E),
         appBar: AppBar(
-          backgroundColor: Color(0xFF130326),
+          backgroundColor: Color(0xFF1A1A2E),
           automaticallyImplyLeading: false,
           leading: FlutterFlowIconButton(
             borderRadius: 20.0,
@@ -551,7 +551,7 @@ class _RegisterFitStatusWidgetState extends State<RegisterFitStatusWidget> {
                                   color: Color(0xFFDFC6FB),
                                   size: 24.0,
                                 ),
-                                fillColor: Color(0xFF1A0D2E),
+                                fillColor: Color(0xFF1A1A2E),
                                 elevation: 0.0,
                                 borderColor: Color(0xCCA18CFF),
                                 borderWidth: 1.0,
@@ -625,7 +625,7 @@ class _RegisterFitStatusWidgetState extends State<RegisterFitStatusWidget> {
                                   color: Color(0xFFDFC6FB),
                                   size: 24.0,
                                 ),
-                                fillColor: Color(0xFF1A0D2E),
+                                fillColor: Color(0xFF1A1A2E),
                                 elevation: 0.0,
                                 borderColor: Color(0xCCA18CFF),
                                 borderWidth: 1.0,

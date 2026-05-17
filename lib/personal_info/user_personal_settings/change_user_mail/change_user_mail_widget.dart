@@ -73,7 +73,7 @@ class _ChangeUserMailWidgetState extends State<ChangeUserMailWidget> {
             },
           ),
           title: Text(
-            'Change User Mail',
+            'Cambiar Mail',
             style: FlutterFlowTheme.of(context).headlineMedium.override(
                   font: GoogleFonts.interTight(
                     fontWeight: FontWeight.bold,
@@ -106,7 +106,7 @@ class _ChangeUserMailWidgetState extends State<ChangeUserMailWidget> {
                   Align(
                     alignment: AlignmentDirectional(-1.0, 0.0),
                     child: Text(
-                      'User Mail',
+                      'Mail De Usuario',
                       style: FlutterFlowTheme.of(context).bodyMedium.override(
                             font: GoogleFonts.inter(
                               fontWeight: FontWeight.w500,
@@ -312,7 +312,7 @@ class _ChangeUserMailWidgetState extends State<ChangeUserMailWidget> {
 
                         safeSetState(() {});
                       },
-                      text: 'Update',
+                      text: 'Actualizar',
                       options: FFButtonOptions(
                         width: double.infinity,
                         height: 40.0,

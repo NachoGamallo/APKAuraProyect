@@ -165,49 +165,79 @@ class _ExecuteRoutineWidgetState extends State<ExecuteRoutineWidget> {
                       Builder(
                         builder: (context) => FFButtonWidget(
                           onPressed: () async {
-                            _model.apiEndSession = await WorkOutGroupGroup
-                                .saveSessionDataCall
-                                .call(
-                              token: currentAuthenticationToken,
-                              routineId: FFAppState().ActualSession.routineId,
-                              durationSeconds: _model.timerMilliseconds,
-                              exercisesJson: functions
-                                  .jsonFormatToSessionExercises(FFAppState()
-                                      .ActualSession
-                                      .exercises
-                                      .toList()),
-                            );
-
-                            if ((_model.apiEndSession?.succeeded ?? true)) {
-                              await showDialog(
-                                context: context,
-                                builder: (dialogContext) {
-                                  return Dialog(
-                                    elevation: 0,
-                                    insetPadding: EdgeInsets.zero,
-                                    backgroundColor: Colors.transparent,
-                                    alignment: AlignmentDirectional(0.0, 0.0)
-                                        .resolve(Directionality.of(context)),
-                                    child: GestureDetector(
-                                      onTap: () {
-                                        FocusScope.of(dialogContext).unfocus();
-                                        FocusManager.instance.primaryFocus
-                                            ?.unfocus();
-                                      },
-                                      child: CustomConfirmMessageWidget(
-                                        textForTheComp:
-                                            (_model.apiEndSession?.succeeded ??
-                                                    true)
-                                                .toString(),
-                                        callback: () async {
-                                          context.pushNamed(
-                                              HomeScreenWidget.routeName);
-                                        },
-                                      ),
-                                    ),
-                                  );
-                                },
+                            if (_model.timerMilliseconds >= 60000) {
+                              _model.apiEndSession = await WorkOutGroupGroup
+                                  .saveSessionDataCall
+                                  .call(
+                                token: currentAuthenticationToken,
+                                routineId: FFAppState().ActualSession.routineId,
+                                durationSeconds: _model.timerMilliseconds,
+                                exercisesJson: functions
+                                    .jsonFormatToSessionExercises(FFAppState()
+                                        .ActualSession
+                                        .exercises
+                                        .toList()),
                               );
+
+                              if ((_model.apiEndSession?.succeeded ?? true)) {
+                                await showDialog(
+                                  context: context,
+                                  builder: (dialogContext) {
+                                    return Dialog(
+                                      elevation: 0,
+                                      insetPadding: EdgeInsets.zero,
+                                      backgroundColor: Colors.transparent,
+                                      alignment: AlignmentDirectional(0.0, 0.0)
+                                          .resolve(Directionality.of(context)),
+                                      child: GestureDetector(
+                                        onTap: () {
+                                          FocusScope.of(dialogContext)
+                                              .unfocus();
+                                          FocusManager.instance.primaryFocus
+                                              ?.unfocus();
+                                        },
+                                        child: CustomConfirmMessageWidget(
+                                          textForTheComp:
+                                              'Sesion guardada con exito...',
+                                          callback: () async {
+                                            context.pushNamed(
+                                                HomeScreenWidget.routeName);
+                                          },
+                                        ),
+                                      ),
+                                    );
+                                  },
+                                );
+                              } else {
+                                await showDialog(
+                                  context: context,
+                                  builder: (dialogContext) {
+                                    return Dialog(
+                                      elevation: 0,
+                                      insetPadding: EdgeInsets.zero,
+                                      backgroundColor: Colors.transparent,
+                                      alignment: AlignmentDirectional(0.0, 0.0)
+                                          .resolve(Directionality.of(context)),
+                                      child: GestureDetector(
+                                        onTap: () {
+                                          FocusScope.of(dialogContext)
+                                              .unfocus();
+                                          FocusManager.instance.primaryFocus
+                                              ?.unfocus();
+                                        },
+                                        child: CustomConfirmMessageWidget(
+                                          textForTheComp:
+                                              'Algo fue mal, abortando sesion...',
+                                          callback: () async {
+                                            context.pushNamed(
+                                                HomeScreenWidget.routeName);
+                                          },
+                                        ),
+                                      ),
+                                    );
+                                  },
+                                );
+                              }
                             }
 
                             safeSetState(() {});
@@ -219,7 +249,9 @@ class _ExecuteRoutineWidgetState extends State<ExecuteRoutineWidget> {
                                 16.0, 0.0, 16.0, 0.0),
                             iconPadding: EdgeInsetsDirectional.fromSTEB(
                                 0.0, 0.0, 0.0, 0.0),
-                            color: Color(0xCC6C63FF),
+                            color: _model.timerMilliseconds >= 60000
+                                ? Color(0xCC6C63FF)
+                                : Color(0xFFCBC4C4),
                             textStyle: FlutterFlowTheme.of(context)
                                 .titleSmall
                                 .override(
@@ -327,7 +359,41 @@ class _ExecuteRoutineWidgetState extends State<ExecuteRoutineWidget> {
                                     0.0, 15.0, 0.0, 0.0),
                                 child: FFButtonWidget(
                                   onPressed: () async {
-                                    context.safePop();
+                                    var confirmDialogResponse =
+                                        await showDialog<bool>(
+                                              context: context,
+                                              builder: (alertDialogContext) {
+                                                return AlertDialog(
+                                                  title: Text(
+                                                      'Eliminacion de sesion:'),
+                                                  content: Text(
+                                                      'Estas seguro que quieres cancelar tu sesion actual? No se guardaran los datos registrados'),
+                                                  actions: [
+                                                    TextButton(
+                                                      onPressed: () =>
+                                                          Navigator.pop(
+                                                              alertDialogContext,
+                                                              false),
+                                                      child: Text('Cancelar'),
+                                                    ),
+                                                    TextButton(
+                                                      onPressed: () =>
+                                                          Navigator.pop(
+                                                              alertDialogContext,
+                                                              true),
+                                                      child: Text('Confirmar'),
+                                                    ),
+                                                  ],
+                                                );
+                                              },
+                                            ) ??
+                                            false;
+                                    if (confirmDialogResponse) {
+                                      context.pushNamed(
+                                          RoutinesScreenWidget.routeName);
+                                    } else {
+                                      Navigator.pop(context);
+                                    }
                                   },
                                   text: 'Descartar Entrenamiento',
                                   options: FFButtonOptions(

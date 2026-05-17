@@ -84,16 +84,17 @@ class _Action2SheetSimpleWidgetState extends State<Action2SheetSimpleWidget> {
                   token: currentAuthenticationToken,
                 );
 
-                _model.apiReport = await GetReportExerciseCall.call(
-                  exercise: FFAppState().actualExerciseDetails.id,
-                  token: currentAuthenticationToken,
-                );
-
                 FFAppState().actualExerciseDetails =
                     ExerciseDetailsStruct.maybeFromMap(getJsonField(
                   (_model.apiExerciseDetails?.jsonBody ?? ''),
                   r'''$''',
                 ))!;
+                safeSetState(() {});
+                _model.apiReport = await GetReportExerciseCall.call(
+                  exercise: FFAppState().actualExerciseDetails.id,
+                  token: currentAuthenticationToken,
+                );
+
                 FFAppState().ExerciseWeightReport =
                     ExerciseReportInfoStruct.maybeFromMap(getJsonField(
                   (_model.apiReport?.jsonBody ?? ''),

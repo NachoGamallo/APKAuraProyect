@@ -79,7 +79,7 @@ class _ChangeUserPasswordWidgetState extends State<ChangeUserPasswordWidget> {
             },
           ),
           title: Text(
-            'Change User Password',
+            'Cambiar Contraseña',
             style: FlutterFlowTheme.of(context).headlineMedium.override(
                   font: GoogleFonts.interTight(
                     fontWeight: FontWeight.bold,
@@ -112,7 +112,7 @@ class _ChangeUserPasswordWidgetState extends State<ChangeUserPasswordWidget> {
                   Align(
                     alignment: AlignmentDirectional(0.0, 0.0),
                     child: Text(
-                      'User Password reset',
+                      'Reseteo De Contraeña',
                       style: FlutterFlowTheme.of(context).bodyMedium.override(
                             font: GoogleFonts.inter(
                               fontWeight: FontWeight.w500,
@@ -159,7 +159,7 @@ class _ChangeUserPasswordWidgetState extends State<ChangeUserPasswordWidget> {
                                   .labelMedium
                                   .fontStyle,
                             ),
-                        hintText: 'Insert actual password',
+                        hintText: 'Inserta contraseña actual',
                         hintStyle: FlutterFlowTheme.of(context)
                             .labelMedium
                             .override(
@@ -278,7 +278,7 @@ class _ChangeUserPasswordWidgetState extends State<ChangeUserPasswordWidget> {
                                   .labelMedium
                                   .fontStyle,
                             ),
-                        hintText: 'Insert new Password',
+                        hintText: 'Nueva contraseña',
                         hintStyle: FlutterFlowTheme.of(context)
                             .labelMedium
                             .override(
@@ -397,7 +397,7 @@ class _ChangeUserPasswordWidgetState extends State<ChangeUserPasswordWidget> {
                                   .labelMedium
                                   .fontStyle,
                             ),
-                        hintText: 'Confirm new Password',
+                        hintText: 'Confirma Nueva Contraseña',
                         hintStyle: FlutterFlowTheme.of(context)
                             .labelMedium
                             .override(
@@ -550,7 +550,7 @@ class _ChangeUserPasswordWidgetState extends State<ChangeUserPasswordWidget> {
 
                         safeSetState(() {});
                       },
-                      text: 'Update',
+                      text: 'Actualizar',
                       options: FFButtonOptions(
                         width: double.infinity,
                         height: 40.0,

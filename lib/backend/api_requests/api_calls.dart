@@ -571,6 +571,38 @@ class GetReportExerciseCall {
   }
 }
 
+class CreateBodyRecordCall {
+  static Future<ApiCallResponse> call({
+    String? token = '',
+    double? weight,
+  }) async {
+    final ffApiRequestBody = '''
+{
+  "weight": ${weight}
+}''';
+    return ApiManager.instance.makeApiCall(
+      callName: 'CreateBodyRecord',
+      apiUrl:
+          'https://impose-glamour-that.ngrok-free.dev/api/record/body-record',
+      callType: ApiCallType.POST,
+      headers: {
+        'Authorization': 'Bearer ${token}',
+        'ngrok-skip-browser-warning': 'true',
+        'Content-Type': 'application/json',
+      },
+      params: {},
+      body: ffApiRequestBody,
+      bodyType: BodyType.JSON,
+      returnBody: true,
+      encodeBodyUtf8: false,
+      decodeUtf8: false,
+      cache: false,
+      isStreamingApi: false,
+      alwaysAllowBody: false,
+    );
+  }
+}
+
 class ApiPagingParams {
   int nextPageNumber = 0;
   int numItems = 0;

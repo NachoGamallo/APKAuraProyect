@@ -12,6 +12,8 @@ class ExerciceComponentModel extends FlutterFlowModel<ExerciceComponentWidget> {
 
   // Stores action output result for [Backend Call - API (GetExerciseDetails)] action in Icon widget.
   ApiCallResponse? apiExerciseDetails;
+  // Stores action output result for [Backend Call - API (getReportExercise)] action in Icon widget.
+  ApiCallResponse? apiReport;
 
   @override
   void initState(BuildContext context) {}

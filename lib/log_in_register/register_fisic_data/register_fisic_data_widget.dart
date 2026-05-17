@@ -69,7 +69,7 @@ class _RegisterFisicDataWidgetState extends State<RegisterFisicDataWidget> {
         key: scaffoldKey,
         backgroundColor: Color(0xFF1A1A2E),
         appBar: AppBar(
-          backgroundColor: Color(0xFF130326),
+          backgroundColor: Color(0xFF1A1A2E),
           automaticallyImplyLeading: false,
           leading: FlutterFlowIconButton(
             borderRadius: 20.0,

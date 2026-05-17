@@ -93,7 +93,7 @@ class _RegisterScreenWidgetState extends State<RegisterScreenWidget> {
                                     padding: EdgeInsetsDirectional.fromSTEB(
                                         0.0, 0.0, 0.0, 20.0),
                                     child: Text(
-                                      'Create Account',
+                                      'Crear Cuenta',
                                       textAlign: TextAlign.center,
                                       style: FlutterFlowTheme.of(context)
                                           .displayMedium
@@ -120,7 +120,7 @@ class _RegisterScreenWidgetState extends State<RegisterScreenWidget> {
                                     padding: EdgeInsetsDirectional.fromSTEB(
                                         0.0, 0.0, 0.0, 10.0),
                                     child: Text(
-                                      'Join us today and start your journey',
+                                      'Unete a nosotros hoy y empieza a entrenar!',
                                       textAlign: TextAlign.center,
                                       style: FlutterFlowTheme.of(context)
                                           .bodyLarge
@@ -161,7 +161,7 @@ class _RegisterScreenWidgetState extends State<RegisterScreenWidget> {
                                       textInputAction: TextInputAction.next,
                                       obscureText: false,
                                       decoration: InputDecoration(
-                                        hintText: 'Full Name',
+                                        hintText: 'Nombre Completo',
                                         hintStyle: FlutterFlowTheme.of(context)
                                             .bodyMedium
                                             .override(
@@ -175,9 +175,7 @@ class _RegisterScreenWidgetState extends State<RegisterScreenWidget> {
                                                         .bodyMedium
                                                         .fontStyle,
                                               ),
-                                              color:
-                                                  FlutterFlowTheme.of(context)
-                                                      .primaryText,
+                                              color: Color(0xFFBDBABA),
                                               fontSize: 16.0,
                                               letterSpacing: 0.0,
                                               fontWeight:
@@ -277,7 +275,7 @@ class _RegisterScreenWidgetState extends State<RegisterScreenWidget> {
                                       textInputAction: TextInputAction.next,
                                       obscureText: false,
                                       decoration: InputDecoration(
-                                        hintText: 'Email Address',
+                                        hintText: 'Correo Electrónico',
                                         hintStyle: FlutterFlowTheme.of(context)
                                             .bodyMedium
                                             .override(
@@ -291,9 +289,7 @@ class _RegisterScreenWidgetState extends State<RegisterScreenWidget> {
                                                         .bodyMedium
                                                         .fontStyle,
                                               ),
-                                              color:
-                                                  FlutterFlowTheme.of(context)
-                                                      .primaryText,
+                                              color: Color(0xFFBDBABA),
                                               fontSize: 16.0,
                                               letterSpacing: 0.0,
                                               fontWeight:
@@ -380,7 +376,7 @@ class _RegisterScreenWidgetState extends State<RegisterScreenWidget> {
                                       textInputAction: TextInputAction.done,
                                       obscureText: !_model.passwordVisibility1,
                                       decoration: InputDecoration(
-                                        hintText: 'Password',
+                                        hintText: 'Contraseña',
                                         hintStyle: FlutterFlowTheme.of(context)
                                             .bodyMedium
                                             .override(
@@ -394,9 +390,7 @@ class _RegisterScreenWidgetState extends State<RegisterScreenWidget> {
                                                         .bodyMedium
                                                         .fontStyle,
                                               ),
-                                              color:
-                                                  FlutterFlowTheme.of(context)
-                                                      .primaryText,
+                                              color: Color(0xFFBDBABA),
                                               fontSize: 16.0,
                                               letterSpacing: 0.0,
                                               fontWeight:
@@ -497,7 +491,7 @@ class _RegisterScreenWidgetState extends State<RegisterScreenWidget> {
                                       textInputAction: TextInputAction.done,
                                       obscureText: !_model.passwordVisibility2,
                                       decoration: InputDecoration(
-                                        hintText: 'Confirm Password',
+                                        hintText: 'Confirmar Contraseña',
                                         hintStyle: FlutterFlowTheme.of(context)
                                             .bodyMedium
                                             .override(
@@ -511,9 +505,7 @@ class _RegisterScreenWidgetState extends State<RegisterScreenWidget> {
                                                         .bodyMedium
                                                         .fontStyle,
                                               ),
-                                              color:
-                                                  FlutterFlowTheme.of(context)
-                                                      .primaryText,
+                                              color: Color(0xFFBDBABA),
                                               fontSize: 16.0,
                                               letterSpacing: 0.0,
                                               fontWeight:
@@ -694,7 +686,7 @@ class _RegisterScreenWidgetState extends State<RegisterScreenWidget> {
                                 mainAxisAlignment: MainAxisAlignment.center,
                                 children: [
                                   Text(
-                                    'Already have an account?',
+                                    '¿Ya tienes una cuenta?',
                                     style: FlutterFlowTheme.of(context)
                                         .bodyMedium
                                         .override(
@@ -725,7 +717,7 @@ class _RegisterScreenWidgetState extends State<RegisterScreenWidget> {
                                           LogginScreenWidget.routeName);
                                     },
                                     child: Text(
-                                      'Sign In',
+                                      'Inicia Sesion',
                                       style: FlutterFlowTheme.of(context)
                                           .bodyMedium
                                           .override(

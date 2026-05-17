@@ -9,6 +9,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:provider/provider.dart';
 import 'exercice_component_model.dart';
 export 'exercice_component_model.dart';
 
@@ -91,6 +92,8 @@ class _ExerciceComponentWidgetState extends State<ExerciceComponentWidget>
 
   @override
   Widget build(BuildContext context) {
+    context.watch<FFAppState>();
+
     return Container(
       width: double.infinity,
       height: 100.0,
@@ -274,6 +277,20 @@ class _ExerciceComponentWidgetState extends State<ExerciceComponentWidget>
                                       ExerciseDetailsStruct.maybeFromMap(
                                           getJsonField(
                                     (_model.apiExerciseDetails?.jsonBody ?? ''),
+                                    r'''$''',
+                                  ))!;
+                                  safeSetState(() {});
+                                  _model.apiReport =
+                                      await GetReportExerciseCall.call(
+                                    exercise:
+                                        FFAppState().actualExerciseDetails.id,
+                                    token: currentAuthenticationToken,
+                                  );
+
+                                  FFAppState().ExerciseWeightReport =
+                                      ExerciseReportInfoStruct.maybeFromMap(
+                                          getJsonField(
+                                    (_model.apiReport?.jsonBody ?? ''),
                                     r'''$''',
                                   ))!;
                                   safeSetState(() {});

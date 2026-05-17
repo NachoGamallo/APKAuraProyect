@@ -205,11 +205,36 @@ class _CreateRoutineScreenWidgetState extends State<CreateRoutineScreenWidget> {
                               },
                               child: CustomConfirmMessageWidget(
                                 textForTheComp:
-                                    (_model.apiCreateRoutine?.statusCode ?? 200)
-                                        .toString(),
+                                    'La rutina se ha creado con exito!',
                                 callback: () async {
                                   context.pushNamed(
                                       RoutinesScreenWidget.routeName);
+                                },
+                              ),
+                            ),
+                          );
+                        },
+                      );
+                    } else {
+                      await showDialog(
+                        context: context,
+                        builder: (dialogContext) {
+                          return Dialog(
+                            elevation: 0,
+                            insetPadding: EdgeInsets.zero,
+                            backgroundColor: Colors.transparent,
+                            alignment: AlignmentDirectional(0.0, 0.0)
+                                .resolve(Directionality.of(context)),
+                            child: GestureDetector(
+                              onTap: () {
+                                FocusScope.of(dialogContext).unfocus();
+                                FocusManager.instance.primaryFocus?.unfocus();
+                              },
+                              child: CustomConfirmMessageWidget(
+                                textForTheComp:
+                                    'Ha habido un problema a la hora de generar la rutina...',
+                                callback: () async {
+                                  Navigator.pop(context);
                                 },
                               ),
                             ),

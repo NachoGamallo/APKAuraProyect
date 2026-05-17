@@ -6,6 +6,7 @@ import '/components/custom_send_data_message/custom_send_data_message_widget.dar
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
+import '/flutter_flow/flutter_flow_widgets.dart';
 import '/index.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -72,7 +73,7 @@ class _UserChangeSettingsWidgetState extends State<UserChangeSettingsWidget> {
             },
           ),
           title: Text(
-            'Account settings',
+            'Ajustes de usuario',
             style: FlutterFlowTheme.of(context).headlineMedium.override(
                   font: GoogleFonts.interTight(
                     fontWeight: FontWeight.bold,
@@ -275,7 +276,7 @@ class _UserChangeSettingsWidgetState extends State<UserChangeSettingsWidget> {
                               safeSetState(() {});
                             },
                             child: Text(
-                              'change profile picture',
+                              'Cambiar foto de perfil',
                               style: FlutterFlowTheme.of(context)
                                   .bodyMedium
                                   .override(
@@ -378,8 +379,7 @@ class _UserChangeSettingsWidgetState extends State<UserChangeSettingsWidget> {
                                                       child: Icon(
                                                         Icons
                                                             .person_outline_rounded,
-                                                        color:
-                                                            Color(0xFF4A235A),
+                                                        color: Colors.white,
                                                         size: 22.0,
                                                       ),
                                                     ),
@@ -392,7 +392,7 @@ class _UserChangeSettingsWidgetState extends State<UserChangeSettingsWidget> {
                                                             .start,
                                                     children: [
                                                       Text(
-                                                        'Change User Name',
+                                                        'Cambiar nombre de usuario',
                                                         style:
                                                             FlutterFlowTheme.of(
                                                                     context)
@@ -426,7 +426,7 @@ class _UserChangeSettingsWidgetState extends State<UserChangeSettingsWidget> {
                                                                 ),
                                                       ),
                                                       Text(
-                                                        'Update your visible name',
+                                                        'Cambiar tu nombre visible',
                                                         style:
                                                             FlutterFlowTheme.of(
                                                                     context)
@@ -525,8 +525,7 @@ class _UserChangeSettingsWidgetState extends State<UserChangeSettingsWidget> {
                                                       child: Icon(
                                                         Icons
                                                             .mail_outline_rounded,
-                                                        color:
-                                                            Color(0xFF4A235A),
+                                                        color: Colors.white,
                                                         size: 22.0,
                                                       ),
                                                     ),
@@ -539,7 +538,7 @@ class _UserChangeSettingsWidgetState extends State<UserChangeSettingsWidget> {
                                                             .start,
                                                     children: [
                                                       Text(
-                                                        'Change e-mail',
+                                                        'Cambiar Mail',
                                                         style:
                                                             FlutterFlowTheme.of(
                                                                     context)
@@ -573,7 +572,7 @@ class _UserChangeSettingsWidgetState extends State<UserChangeSettingsWidget> {
                                                                 ),
                                                       ),
                                                       Text(
-                                                        'Modify your e-mail address',
+                                                        'Modificar tu direccion de correo',
                                                         style:
                                                             FlutterFlowTheme.of(
                                                                     context)
@@ -673,8 +672,7 @@ class _UserChangeSettingsWidgetState extends State<UserChangeSettingsWidget> {
                                                       child: Icon(
                                                         Icons
                                                             .lock_outline_rounded,
-                                                        color:
-                                                            Color(0xFF4A235A),
+                                                        color: Colors.white,
                                                         size: 22.0,
                                                       ),
                                                     ),
@@ -687,7 +685,7 @@ class _UserChangeSettingsWidgetState extends State<UserChangeSettingsWidget> {
                                                             .start,
                                                     children: [
                                                       Text(
-                                                        'Update Password',
+                                                        'Cambiar contraseña',
                                                         style:
                                                             FlutterFlowTheme.of(
                                                                     context)
@@ -721,7 +719,7 @@ class _UserChangeSettingsWidgetState extends State<UserChangeSettingsWidget> {
                                                                 ),
                                                       ),
                                                       Text(
-                                                        'Change your access password',
+                                                        'Cambiar tu contraseña de acceso',
                                                         style:
                                                             FlutterFlowTheme.of(
                                                                     context)
@@ -776,12 +774,77 @@ class _UserChangeSettingsWidgetState extends State<UserChangeSettingsWidget> {
                           Padding(
                             padding: EdgeInsetsDirectional.fromSTEB(
                                 8.0, 20.0, 8.0, 0.0),
-                            child: InkWell(
-                              splashColor: Colors.transparent,
-                              focusColor: Colors.transparent,
-                              hoverColor: Colors.transparent,
-                              highlightColor: Colors.transparent,
-                              onTap: () async {
+                            child: FFButtonWidget(
+                              onPressed: () async {
+                                var confirmDialogResponse = await showDialog<
+                                        bool>(
+                                      context: context,
+                                      builder: (alertDialogContext) {
+                                        return AlertDialog(
+                                          title:
+                                              Text('Confirmar cerrar sesion'),
+                                          content: Text(
+                                              '¿Está seguro de que desea cerrar sesion?'),
+                                          actions: [
+                                            TextButton(
+                                              onPressed: () => Navigator.pop(
+                                                  alertDialogContext, false),
+                                              child: Text('Cancel'),
+                                            ),
+                                            TextButton(
+                                              onPressed: () => Navigator.pop(
+                                                  alertDialogContext, true),
+                                              child: Text('Confirm'),
+                                            ),
+                                          ],
+                                        );
+                                      },
+                                    ) ??
+                                    false;
+                                if (confirmDialogResponse) {
+                                  FFAppState().actualUser = UserDataStruct();
+                                  safeSetState(() {});
+
+                                  context
+                                      .pushNamed(LogginScreenWidget.routeName);
+                                }
+                              },
+                              text: 'Cerrar Sesion',
+                              options: FFButtonOptions(
+                                width: double.infinity,
+                                height: 40.0,
+                                padding: EdgeInsetsDirectional.fromSTEB(
+                                    16.0, 0.0, 16.0, 0.0),
+                                iconPadding: EdgeInsetsDirectional.fromSTEB(
+                                    0.0, 0.0, 0.0, 0.0),
+                                color: Color(0xCCF2ACAD),
+                                textStyle: FlutterFlowTheme.of(context)
+                                    .bodyMedium
+                                    .override(
+                                      font: GoogleFonts.inter(
+                                        fontWeight: FontWeight.w600,
+                                        fontStyle: FlutterFlowTheme.of(context)
+                                            .bodyMedium
+                                            .fontStyle,
+                                      ),
+                                      color: Color(0xCCFFFFFF),
+                                      fontSize: 20.0,
+                                      letterSpacing: 0.0,
+                                      fontWeight: FontWeight.w600,
+                                      fontStyle: FlutterFlowTheme.of(context)
+                                          .bodyMedium
+                                          .fontStyle,
+                                    ),
+                                elevation: 0.0,
+                                borderRadius: BorderRadius.circular(8.0),
+                              ),
+                            ),
+                          ),
+                          Padding(
+                            padding: EdgeInsetsDirectional.fromSTEB(
+                                8.0, 20.0, 8.0, 0.0),
+                            child: FFButtonWidget(
+                              onPressed: () async {
                                 var confirmDialogResponse = await showDialog<
                                         bool>(
                                       context: context,
@@ -816,9 +879,16 @@ class _UserChangeSettingsWidgetState extends State<UserChangeSettingsWidget> {
                                       .pushNamed(LogginScreenWidget.routeName);
                                 }
                               },
-                              child: Text(
-                                'Delete account',
-                                style: FlutterFlowTheme.of(context)
+                              text: 'Borrar cuenta',
+                              options: FFButtonOptions(
+                                width: double.infinity,
+                                height: 40.0,
+                                padding: EdgeInsetsDirectional.fromSTEB(
+                                    16.0, 0.0, 16.0, 0.0),
+                                iconPadding: EdgeInsetsDirectional.fromSTEB(
+                                    0.0, 0.0, 0.0, 0.0),
+                                color: Color(0xCCFF3F42),
+                                textStyle: FlutterFlowTheme.of(context)
                                     .bodyMedium
                                     .override(
                                       font: GoogleFonts.inter(
@@ -827,7 +897,7 @@ class _UserChangeSettingsWidgetState extends State<UserChangeSettingsWidget> {
                                             .bodyMedium
                                             .fontStyle,
                                       ),
-                                      color: Color(0xFFB20000),
+                                      color: Color(0xCCFFFFFF),
                                       fontSize: 20.0,
                                       letterSpacing: 0.0,
                                       fontWeight: FontWeight.w600,
@@ -835,6 +905,8 @@ class _UserChangeSettingsWidgetState extends State<UserChangeSettingsWidget> {
                                           .bodyMedium
                                           .fontStyle,
                                     ),
+                                elevation: 0.0,
+                                borderRadius: BorderRadius.circular(8.0),
                               ),
                             ),
                           ),

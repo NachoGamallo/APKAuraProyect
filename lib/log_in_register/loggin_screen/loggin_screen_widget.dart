@@ -327,22 +327,6 @@ class _LogginScreenWidgetState extends State<LogginScreenWidget> {
                                         r'''$''',
                                       ))!;
                                       safeSetState(() {});
-                                      _model.apiHomeData =
-                                          await GetHomeDataCall.call(
-                                        token: currentAuthenticationToken,
-                                      );
-
-                                      FFAppState().updateActualUserStruct(
-                                        (e) => e
-                                          ..homeData =
-                                              UserHomeDataStruct.maybeFromMap(
-                                                  getJsonField(
-                                            (_model.apiHomeData?.jsonBody ??
-                                                ''),
-                                            r'''$''',
-                                          )),
-                                      );
-                                      safeSetState(() {});
 
                                       context.pushNamedAuth(
                                           HomeScreenWidget.routeName,
@@ -369,7 +353,7 @@ class _LogginScreenWidgetState extends State<LogginScreenWidget> {
 
                                     safeSetState(() {});
                                   },
-                                  text: 'Sign In',
+                                  text: 'Iniciar Sesion',
                                   options: FFButtonOptions(
                                     width: double.infinity,
                                     height: 50.0,
@@ -419,7 +403,7 @@ class _LogginScreenWidgetState extends State<LogginScreenWidget> {
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
                         Text(
-                          'Don\'t have an account?',
+                          '¿No tienes cuenta?',
                           style:
                               FlutterFlowTheme.of(context).bodyMedium.override(
                                     font: GoogleFonts.inter(
@@ -446,7 +430,7 @@ class _LogginScreenWidgetState extends State<LogginScreenWidget> {
                             context.pushNamed(RegisterScreenWidget.routeName);
                           },
                           child: Text(
-                            ' Sign Up',
+                            '  Crear cuenta',
                             style: FlutterFlowTheme.of(context)
                                 .bodyMedium
                                 .override(

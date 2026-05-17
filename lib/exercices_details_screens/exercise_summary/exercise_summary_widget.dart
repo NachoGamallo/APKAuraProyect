@@ -1,3 +1,4 @@
+import '/components/custom_confirm_message/custom_confirm_message_widget.dart';
 import '/flutter_flow/flutter_flow_charts.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
@@ -467,64 +468,117 @@ class _ExerciseSummaryWidgetState extends State<ExerciseSummaryWidget> {
                                     mainAxisSize: MainAxisSize.max,
                                     mainAxisAlignment: MainAxisAlignment.end,
                                     children: [
-                                      Padding(
-                                        padding: EdgeInsetsDirectional.fromSTEB(
-                                            14.0, 0.0, 14.0, 0.0),
-                                        child: Container(
-                                          height: 45.0,
-                                          decoration: BoxDecoration(
-                                            color: Color(0xFF6C63FF),
-                                            borderRadius:
-                                                BorderRadius.circular(18.0),
-                                            border: Border.all(
-                                              color: Color(0xFF6C63FF),
-                                              width: 1.0,
-                                            ),
-                                          ),
-                                          child: Padding(
-                                            padding: EdgeInsets.all(12.0),
-                                            child: Row(
-                                              mainAxisSize: MainAxisSize.max,
-                                              children: [
-                                                Align(
-                                                  alignment:
-                                                      AlignmentDirectional(
-                                                          0.0, 0.0),
-                                                  child: Text(
-                                                    'Año',
-                                                    style: FlutterFlowTheme.of(
-                                                            context)
-                                                        .bodySmall
-                                                        .override(
-                                                          font:
-                                                              GoogleFonts.inter(
-                                                            fontWeight:
-                                                                FontWeight.w600,
-                                                            fontStyle:
-                                                                FlutterFlowTheme.of(
+                                      Builder(
+                                        builder: (context) => Padding(
+                                          padding:
+                                              EdgeInsetsDirectional.fromSTEB(
+                                                  14.0, 0.0, 14.0, 0.0),
+                                          child: InkWell(
+                                            splashColor: Colors.transparent,
+                                            focusColor: Colors.transparent,
+                                            hoverColor: Colors.transparent,
+                                            highlightColor: Colors.transparent,
+                                            onTap: () async {
+                                              await showDialog(
+                                                context: context,
+                                                builder: (dialogContext) {
+                                                  return Dialog(
+                                                    elevation: 0,
+                                                    insetPadding:
+                                                        EdgeInsets.zero,
+                                                    backgroundColor:
+                                                        Colors.transparent,
+                                                    alignment:
+                                                        AlignmentDirectional(
+                                                                0.0, 0.0)
+                                                            .resolve(
+                                                                Directionality.of(
+                                                                    context)),
+                                                    child: GestureDetector(
+                                                      onTap: () {
+                                                        FocusScope.of(
+                                                                dialogContext)
+                                                            .unfocus();
+                                                        FocusManager.instance
+                                                            .primaryFocus
+                                                            ?.unfocus();
+                                                      },
+                                                      child:
+                                                          CustomConfirmMessageWidget(
+                                                        textForTheComp:
+                                                            'Con este boton podrías cambiar el rango de fecha de los datos implementados en la gráfica.',
+                                                        callback: () async {
+                                                          Navigator.pop(
+                                                              context);
+                                                        },
+                                                      ),
+                                                    ),
+                                                  );
+                                                },
+                                              );
+                                            },
+                                            child: Container(
+                                              height: 45.0,
+                                              decoration: BoxDecoration(
+                                                color: Color(0xFF6C63FF),
+                                                borderRadius:
+                                                    BorderRadius.circular(18.0),
+                                                border: Border.all(
+                                                  color: Color(0xFF6C63FF),
+                                                  width: 1.0,
+                                                ),
+                                              ),
+                                              child: Padding(
+                                                padding: EdgeInsets.all(12.0),
+                                                child: Row(
+                                                  mainAxisSize:
+                                                      MainAxisSize.max,
+                                                  children: [
+                                                    Align(
+                                                      alignment:
+                                                          AlignmentDirectional(
+                                                              0.0, 0.0),
+                                                      child: Text(
+                                                        'Año',
+                                                        style: FlutterFlowTheme
+                                                                .of(context)
+                                                            .bodySmall
+                                                            .override(
+                                                              font: GoogleFonts
+                                                                  .inter(
+                                                                fontWeight:
+                                                                    FontWeight
+                                                                        .w600,
+                                                                fontStyle: FlutterFlowTheme.of(
                                                                         context)
                                                                     .bodySmall
                                                                     .fontStyle,
-                                                          ),
-                                                          color: Colors.white,
-                                                          letterSpacing: 0.0,
-                                                          fontWeight:
-                                                              FontWeight.w600,
-                                                          fontStyle:
-                                                              FlutterFlowTheme.of(
-                                                                      context)
-                                                                  .bodySmall
-                                                                  .fontStyle,
-                                                        ),
-                                                  ),
+                                                              ),
+                                                              color:
+                                                                  Colors.white,
+                                                              letterSpacing:
+                                                                  0.0,
+                                                              fontWeight:
+                                                                  FontWeight
+                                                                      .w600,
+                                                              fontStyle:
+                                                                  FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .bodySmall
+                                                                      .fontStyle,
+                                                            ),
+                                                      ),
+                                                    ),
+                                                    Icon(
+                                                      Icons
+                                                          .keyboard_arrow_down_rounded,
+                                                      color: Colors.white,
+                                                      size: 16.0,
+                                                    ),
+                                                  ].divide(
+                                                      SizedBox(width: 4.0)),
                                                 ),
-                                                Icon(
-                                                  Icons
-                                                      .keyboard_arrow_down_rounded,
-                                                  color: Colors.white,
-                                                  size: 16.0,
-                                                ),
-                                              ].divide(SizedBox(width: 4.0)),
+                                              ),
                                             ),
                                           ),
                                         ),
@@ -555,12 +609,12 @@ class _ExerciseSummaryWidgetState extends State<ExerciseSummaryWidget> {
                                             xData: FFAppState()
                                                 .ExerciseWeightReport
                                                 .sessionRecords
-                                                .map((e) => e.maxWeight)
+                                                .map((e) => e.sessionDate)
                                                 .toList(),
                                             yData: FFAppState()
                                                 .ExerciseWeightReport
                                                 .sessionRecords
-                                                .map((e) => e.sessionDate)
+                                                .map((e) => e.maxWeight)
                                                 .toList(),
                                             settings: LineChartBarData(
                                               color:
@@ -586,8 +640,6 @@ class _ExerciseSummaryWidgetState extends State<ExerciseSummaryWidget> {
                                         ),
                                         axisBounds: AxisBounds(),
                                         xAxisLabelInfo: AxisLabelInfo(
-                                          showLabels: true,
-                                          labelInterval: 10.0,
                                           reservedSize: 32.0,
                                         ),
                                         yAxisLabelInfo: AxisLabelInfo(

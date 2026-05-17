@@ -23,7 +23,7 @@ export '/personal_info/user_personal_settings/change_user_name/change_user_name_
     show ChangeUserNameWidget;
 export '/personal_info/user_personal_settings/change_user_mail/change_user_mail_widget.dart'
     show ChangeUserMailWidget;
-export '/personal_info/change_user_password/change_user_password_widget.dart'
+export '/personal_info/user_personal_settings/change_user_password/change_user_password_widget.dart'
     show ChangeUserPasswordWidget;
 export '/exercices_details_screens/exercise_instruction_page/exercise_instruction_page_widget.dart'
     show ExerciseInstructionPageWidget;

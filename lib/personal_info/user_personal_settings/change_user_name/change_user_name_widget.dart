@@ -73,7 +73,7 @@ class _ChangeUserNameWidgetState extends State<ChangeUserNameWidget> {
             },
           ),
           title: Text(
-            'Change User Name',
+            'Cambiar Nombre De Usuario',
             style: FlutterFlowTheme.of(context).headlineMedium.override(
                   font: GoogleFonts.interTight(
                     fontWeight: FontWeight.bold,
@@ -106,7 +106,7 @@ class _ChangeUserNameWidgetState extends State<ChangeUserNameWidget> {
                   Align(
                     alignment: AlignmentDirectional(-1.0, 0.0),
                     child: Text(
-                      'User Name',
+                      'Nombre De Usuario',
                       style: FlutterFlowTheme.of(context).bodyMedium.override(
                             font: GoogleFonts.inter(
                               fontWeight: FontWeight.w500,
@@ -278,7 +278,7 @@ class _ChangeUserNameWidgetState extends State<ChangeUserNameWidget> {
 
                         safeSetState(() {});
                       },
-                      text: 'Update',
+                      text: 'Actualizar',
                       options: FFButtonOptions(
                         width: double.infinity,
                         height: 40.0,
