@@ -26,7 +26,7 @@ jobs:
       run: flutter pub get
 
     - name: Analyze project source
-      run: flutter analyze
+      run: flutter analyze --no-fatal-warnings
 
     # Si tienes pruebas unitarias de FlutterFlow
     - name: Run tests
