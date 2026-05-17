@@ -1,0 +1,33 @@
+// Export pages
+export '/log_in_register/loggin_screen/loggin_screen_widget.dart'
+    show LogginScreenWidget;
+export '/log_in_register/register_screen/register_screen_widget.dart'
+    show RegisterScreenWidget;
+export '/principals_screens/user_profile/user_profile_widget.dart'
+    show UserProfileWidget;
+export '/principals_screens/home_screen/home_screen_widget.dart'
+    show HomeScreenWidget;
+export '/log_in_register/register_fisic_data/register_fisic_data_widget.dart'
+    show RegisterFisicDataWidget;
+export '/log_in_register/register_fit_status/register_fit_status_widget.dart'
+    show RegisterFitStatusWidget;
+export '/principals_screens/routines_screen/routines_screen_widget.dart'
+    show RoutinesScreenWidget;
+export '/create_routine/create_routine_screen/create_routine_screen_widget.dart'
+    show CreateRoutineScreenWidget;
+export '/create_routine/exercices_screen/exercices_screen_widget.dart'
+    show ExercicesScreenWidget;
+export '/personal_info/user_change_settings/user_change_settings_widget.dart'
+    show UserChangeSettingsWidget;
+export '/personal_info/user_personal_settings/change_user_name/change_user_name_widget.dart'
+    show ChangeUserNameWidget;
+export '/personal_info/user_personal_settings/change_user_mail/change_user_mail_widget.dart'
+    show ChangeUserMailWidget;
+export '/personal_info/user_personal_settings/change_user_password/change_user_password_widget.dart'
+    show ChangeUserPasswordWidget;
+export '/exercices_details_screens/exercise_instruction_page/exercise_instruction_page_widget.dart'
+    show ExerciseInstructionPageWidget;
+export '/exercices_details_screens/exercise_summary/exercise_summary_widget.dart'
+    show ExerciseSummaryWidget;
+export '/execute_routine/execute_routine/execute_routine_widget.dart'
+    show ExecuteRoutineWidget;
