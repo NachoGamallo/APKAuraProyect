@@ -239,7 +239,7 @@ class CreateRoutineCall {
 }''';
     return ApiManager.instance.makeApiCall(
       callName: 'CreateRoutine',
-      apiUrl: '${baseUrl}/create',
+      apiUrl: '${baseUrl}create',
       callType: ApiCallType.POST,
       headers: {
         'Content-Type': 'application/json',
@@ -269,7 +269,7 @@ class GetRoutinesOfUserCall {
 
     return ApiManager.instance.makeApiCall(
       callName: 'getRoutinesOfUser',
-      apiUrl: '${baseUrl}/getRoutines',
+      apiUrl: '${baseUrl}getRoutines',
       callType: ApiCallType.GET,
       headers: {
         'Content-Type': 'application/json',
