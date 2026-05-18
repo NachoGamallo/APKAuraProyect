@@ -55,10 +55,22 @@ class _RowSerieWidgetState extends State<RowSerieWidget>
     super.initState();
     _model = createModel(context, () => RowSerieModel());
 
-    _model.textController1 ??= TextEditingController();
+    _model.textController1 ??= TextEditingController(
+        text: widget.item != null
+            ? valueOrDefault<String>(
+                widget.item?.weight.toString(),
+                '-',
+              )
+            : '');
     _model.textFieldFocusNode1 ??= FocusNode();
 
-    _model.textController2 ??= TextEditingController();
+    _model.textController2 ??= TextEditingController(
+        text: widget.item != null
+            ? valueOrDefault<String>(
+                widget.item?.reps.toString(),
+                '-',
+              )
+            : '');
     _model.textFieldFocusNode2 ??= FocusNode();
 
     animationsMap.addAll({
