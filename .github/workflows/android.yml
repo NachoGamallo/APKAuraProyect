@@ -1,8 +1,8 @@
-name: Build Android APK and Deploy
+name: Build Android APK
 
 on:
   push:
-    branches: ["flutterflow"]
+    branches: ["main", "flutterflow"] # Ahora se ejecutará en ambas ramas
 
 jobs:
   build-android:
@@ -30,19 +30,9 @@ jobs:
     - name: Build APK (release)
       run: flutter build apk --release
 
-    - name: Package outputs
-      run: |
-        mkdir -p out
-        cp build/app/outputs/flutter-apk/app-release.apk out/app-release.apk
-
-    - name: Deploy APK to releases repo
-      run: |
-        git clone https://x-access-token:${{ secrets.ACCESS_TOKEN }}@github.com/NachoGamallo/APKAuraProyect mobile-repo
-        rm -rf mobile-repo/*
-        cp out/app-release.apk mobile-repo/app-release-latest.apk
-        cd mobile-repo
-        git config user.name "github-actions[bot]"
-        git config user.email "github-actions[bot]@users.noreply.github.com"
-        git add .
-        git commit -m "Deploy Android APK (auto)" || echo "No changes"
-        git push
+    # Esta es la forma correcta de guardar el APK
+    - name: Upload APK
+      uses: actions/upload-artifact@v4
+      with:
+        name: android-apk
+        path: build/app/outputs/flutter-apk/app-release.apk
