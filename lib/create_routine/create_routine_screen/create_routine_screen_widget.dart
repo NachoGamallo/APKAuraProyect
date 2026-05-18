@@ -497,6 +497,7 @@ class _CreateRoutineScreenWidgetState extends State<CreateRoutineScreenWidget> {
                                         ),
                                         updateCallback: () =>
                                             safeSetState(() {}),
+                                        updateOnChange: true,
                                         child: ExerciceCardWidget(
                                           key: Key(
                                             'Key77p_${listExercicesItem.exercise.id}',
@@ -615,7 +616,7 @@ class _CreateRoutineScreenWidgetState extends State<CreateRoutineScreenWidget> {
                                         16.0, 8.0, 16.0, 8.0),
                                     iconPadding: EdgeInsetsDirectional.fromSTEB(
                                         0.0, 0.0, 0.0, 0.0),
-                                    color: Color(0xFF6200EA),
+                                    color: Color(0xCC6C63FF),
                                     textStyle: FlutterFlowTheme.of(context)
                                         .bodyMedium
                                         .override(

@@ -350,13 +350,14 @@ class _ExerciceCardWidgetState extends State<ExerciceCardWidget> {
                                     0.0, 0.0, 0.0, 2.0),
                                 child: wrapWithModel(
                                   model: _model.rowSerieModels.getModel(
-                                    widget.data!.series.length.toString(),
+                                    _model.dataToModificate!.series.length
+                                        .toString(),
                                     listaDeSeriesIndex,
                                   ),
                                   updateCallback: () => safeSetState(() {}),
                                   child: RowSerieWidget(
                                     key: Key(
-                                      'Keybet_${widget.data!.series.length.toString()}',
+                                      'Keybet_${_model.dataToModificate!.series.length.toString()}',
                                     ),
                                     item: listaDeSeriesItem,
                                     type: 0,
@@ -403,6 +404,8 @@ class _ExerciceCardWidgetState extends State<ExerciceCardWidget> {
                                               ..reps = value,
                                           ),
                                       );
+                                      _model.actualReps = value;
+                                      safeSetState(() {});
                                       await widget.callBack?.call(
                                         _model.dataToModificate!,
                                       );
