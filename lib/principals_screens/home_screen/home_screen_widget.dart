@@ -1530,11 +1530,14 @@ class _HomeScreenWidgetState extends State<HomeScreenWidget> {
                   ),
                 ),
               ),
-              wrapWithModel(
-                model: _model.navBarModel,
-                updateCallback: () => safeSetState(() {}),
-                child: NavBarWidget(
-                  actualScreen: 1,
+              Padding(
+                padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 45.0),
+                child: wrapWithModel(
+                  model: _model.navBarModel,
+                  updateCallback: () => safeSetState(() {}),
+                  child: NavBarWidget(
+                    actualScreen: 1,
+                  ),
                 ),
               ),
             ],
