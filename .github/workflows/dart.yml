@@ -1,0 +1,33 @@
+name: Flutter CI
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+
+    # Aquí es donde instalamos Flutter correctamente
+    - name: Set up Flutter
+      uses: subosito/flutter-action@v2
+      with:
+        channel: 'stable'
+        # Si FlutterFlow te pide una versión específica, puedes ponerla aquí:
+        # flutter-version: '3.x.x' 
+
+    - name: Install dependencies
+      run: flutter pub get
+
+    - name: Analyze project source
+      run: flutter analyze --no-fatal-warnings
+
+    # Si tienes pruebas unitarias de FlutterFlow
+    #- name: Run tests
+    #  run: flutter test
